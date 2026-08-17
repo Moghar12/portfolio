@@ -1,585 +1,907 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5BB8W2X');</script>
-  <!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ali Moghar — AI Engineer | GenAI · RAG · LLM Systems</title>
+<meta name="description" content="Ali Moghar — AI Engineer specialised in LLM, RAG and multi-agent systems. Builder of VIALAB, a full-stack AI platform for critical railway telephony validation at SNCF Réseau. Available from September 2026, open to relocation across Germany.">
+<meta name="keywords" content="AI Engineer, KI-Ingenieur, Ingénieur IA, GenAI, RAG, LangChain, LangGraph, LLM, FastAPI, React, PostgreSQL, Docker, MLOps, Fine-tuning, Microservices">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230A1622'/><circle cx='50' cy='50' r='22' fill='%23FFB01F'/></svg>">
 
-  <link rel="icon" type="image/png" href="/favicon.png"/>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <title>Ali Moghar | AI / GenAI / RAG</title>
-  <meta content="Ali Moghar - AI Engineer (GenAI, RAG, Multi-agents) - Portfolio" name="description">
-  <meta content="AI, GenAI, RAG, LangChain, LangGraph, LLM, Data Science, Python, MLOps" name="keywords">
+<style>
+  :root{
+    --ink:#0A1622;
+    --ink-panel:#12243A;
+    --paper:#EDF1F4;
+    --paper-card:#FFFFFF;
+    --signal:#FFB01F;
+    --signal-live:#35C77B;
+    --muted:#6E8195;
+    --muted-dark:#8FA3B8;
+    --hair:rgba(10,22,34,.14);
+    --hair-dark:rgba(255,255,255,.14);
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    --display:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    --pad:clamp(1.25rem, 5vw, 5rem);
+    --maxw:1180px;
+  }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:74px}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-weight:350; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  img{max-width:100%; display:block}
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169007209-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-169007209-3');
-  </script>
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
 
-  <style>
-    .portfolio-img { width: 100%; height: 250px; object-fit: cover; }
-    .badge-skill{
-      display:inline-block; padding:.35rem .6rem; margin:.2rem .2rem;
-      border:1px solid rgba(255,255,255,.18); border-radius:999px;
-      color:#fff; font-size:.85rem; background:rgba(255,255,255,.05);
+  /* ---------- utility type ---------- */
+  .mono{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase}
+  .eyebrow{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); display:flex; align-items:center; gap:.6rem; margin:0 0 1.1rem;
+  }
+  .eyebrow::before{content:""; width:26px; height:2px; background:var(--signal); flex:none}
+
+  h2.sec-title{
+    font-family:var(--display); font-weight:700; letter-spacing:-.02em;
+    font-size:clamp(1.6rem, 3.4vw, 2.4rem); margin:0 0 2.2rem; line-height:1.1;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50; background:rgba(10,22,34,.94);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--hair-dark); color:#fff;
+  }
+  .topbar-in{
+    max-width:var(--maxw); margin:0 auto; padding:.7rem var(--pad);
+    display:flex; align-items:center; gap:1.4rem;
+  }
+  .brand{
+    font-family:var(--display); font-weight:800; letter-spacing:.02em;
+    text-decoration:none; font-size:.95rem; white-space:nowrap;
+  }
+  .brand span{color:var(--signal)}
+  .site-nav{display:flex; gap:1.3rem; margin-left:auto; flex-wrap:wrap}
+  .site-nav a{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+    text-decoration:none; color:var(--muted-dark); padding:.35rem 0; border-bottom:2px solid transparent;
+    transition:color .18s, border-color .18s;
+  }
+  .site-nav a:hover{color:#fff; border-bottom-color:var(--signal)}
+
+  @media(max-width:900px){
+    html{scroll-padding-top:108px}
+    .topbar-in{flex-wrap:wrap; gap:.6rem 1rem; padding-top:.6rem; padding-bottom:.5rem}
+    .site-nav{
+      order:3; flex-basis:100%; margin-left:0; flex-wrap:nowrap;
+      overflow-x:auto; gap:1.15rem; -ms-overflow-style:none; scrollbar-width:none;
     }
-  </style>
-</head>
+    .site-nav::-webkit-scrollbar{display:none}
+    .site-nav a{white-space:nowrap}
+    .lang{margin-left:auto}
+  }
 
+  .lang{display:flex; border:1px solid var(--hair-dark); flex:none}
+  .lang button{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+    background:none; border:0; color:var(--muted-dark); padding:.42rem .62rem; cursor:pointer;
+    transition:background .18s, color .18s;
+  }
+  .lang button + button{border-left:1px solid var(--hair-dark)}
+  .lang button:hover{color:#fff}
+  .lang button[aria-pressed="true"]{background:var(--signal); color:var(--ink); font-weight:600}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--ink); color:#fff; padding:clamp(3.5rem,9vw,7rem) 0 clamp(2.5rem,6vw,4rem)}
+  .hero-name{
+    font-family:var(--display); font-weight:800; text-transform:uppercase;
+    font-size:clamp(2.8rem, 11vw, 7rem); line-height:.9; letter-spacing:-.035em; margin:0;
+  }
+  .hero-role{
+    font-family:var(--mono); font-size:clamp(.8rem,1.8vw,1rem); letter-spacing:.08em;
+    color:var(--signal); margin:1.3rem 0 0; min-height:1.6em;
+  }
+  .hero-role .caret{
+    display:inline-block; width:.55em; height:1.05em; background:var(--signal);
+    vertical-align:-.16em; margin-left:.18em; animation:blink 1.05s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+
+  .hero-lede{
+    max-width:60ch; margin:1.8rem 0 0; color:#CBD8E4; font-size:clamp(1rem,1.6vw,1.1rem); font-weight:300;
+  }
+  .hero-lede strong{color:#fff; font-weight:500}
+
+  /* departure-board status strip */
+  .board{
+    margin-top:2.4rem; border:1px solid var(--hair-dark); background:var(--ink-panel);
+    display:flex; flex-wrap:wrap; align-items:stretch;
+  }
+  .board-cell{padding:.85rem 1.1rem; display:flex; align-items:center; gap:.6rem; flex:1 1 auto}
+  .board-cell + .board-cell{border-left:1px solid var(--hair-dark)}
+  .board-k{font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-dark)}
+  .board-v{font-family:var(--mono); font-size:.82rem; letter-spacing:.06em; color:#fff; font-weight:500}
+  .board-v.amber{color:var(--signal)}
+  .live-dot{
+    width:8px; height:8px; border-radius:50%; background:var(--signal-live); flex:none;
+    box-shadow:0 0 0 0 rgba(53,199,123,.6); animation:pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(53,199,123,.55)}
+    70%{box-shadow:0 0 0 9px rgba(53,199,123,0)}
+    100%{box-shadow:0 0 0 0 rgba(53,199,123,0)}
+  }
+
+  .stack-strip{margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.4rem}
+  .chip-dark{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.05em; color:#D6E2ED;
+    border:1px solid var(--hair-dark); padding:.32rem .6rem; white-space:nowrap;
+  }
+  .hero-cta{margin-top:2.2rem; display:flex; flex-wrap:wrap; gap:.7rem}
+  .btn{
+    font-family:var(--mono); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase;
+    text-decoration:none; padding:.75rem 1.25rem; border:1px solid var(--signal); color:var(--ink);
+    background:var(--signal); font-weight:600; transition:transform .16s, background .16s, color .16s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:none; color:#fff; border-color:var(--hair-dark)}
+  .btn.ghost:hover{border-color:#fff}
+
+  /* ---------- sections ---------- */
+  .band{padding:clamp(3.2rem,7vw,5.5rem) 0; border-bottom:1px solid var(--hair)}
+  .band-dark{background:var(--ink); color:#fff; border-bottom:0}
+  .band-dark .eyebrow{color:var(--muted-dark)}
+
+  /* about */
+  .about-grid{display:grid; grid-template-columns:1fr; gap:2.4rem}
+  @media(min-width:860px){.about-grid{grid-template-columns:1.55fr 1fr; gap:3.5rem}}
+  .about-text p{margin:0 0 1.1rem; font-size:1.05rem; max-width:64ch}
+  .about-text p:last-child{margin-bottom:0}
+  .about-text strong{font-weight:600}
+
+  .facts{border-top:2px solid var(--ink)}
+  .fact{display:flex; gap:1rem; padding:.8rem 0; border-bottom:1px solid var(--hair); align-items:baseline}
+  .fact-k{font-family:var(--mono); font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); flex:0 0 42%}
+  .fact-v{font-size:.94rem; font-weight:500}
+  .fact-v a{text-decoration:none; border-bottom:1px solid var(--signal)}
+
+  /* experience rail */
+  .rail{position:relative; padding-left:2.6rem}
+  .rail::before{
+    content:""; position:absolute; left:7px; top:.6rem; bottom:.6rem; width:2px;
+    background:linear-gradient(180deg, var(--signal) 0 64px, rgba(255,255,255,.2) 64px);
+  }
+  .stop{position:relative; padding-bottom:2.6rem}
+  .stop:last-child{padding-bottom:0}
+  .stop-node{
+    position:absolute; left:-2.6rem; top:.35rem; width:16px; height:16px; border-radius:50%;
+    background:var(--ink); border:2px solid rgba(255,255,255,.35);
+  }
+  .stop.is-current .stop-node{
+    background:var(--signal); border-color:var(--signal);
+    box-shadow:0 0 0 0 rgba(255,176,31,.55); animation:pulse-amber 2.6s ease-out infinite;
+  }
+  @keyframes pulse-amber{
+    0%{box-shadow:0 0 0 0 rgba(255,176,31,.5)}
+    70%{box-shadow:0 0 0 12px rgba(255,176,31,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,176,31,0)}
+  }
+  .stop-meta{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--signal); display:flex; flex-wrap:wrap; gap:.5rem .9rem; align-items:center;
+  }
+  .badge-live{
+    background:var(--signal-live); color:var(--ink); padding:.1rem .45rem; font-weight:600; letter-spacing:.1em;
+  }
+  .stop-role{
+    font-family:var(--display); font-weight:600; letter-spacing:-.01em;
+    font-size:clamp(1.05rem,2.1vw,1.35rem); margin:.55rem 0 .2rem; line-height:1.25;
+  }
+  .stop-org{font-family:var(--body); font-size:.92rem; color:var(--muted-dark); margin:0 0 .9rem}
+  .stop-list{margin:0; padding-left:1.05rem; color:#C8D6E3; font-weight:300}
+  .stop-list li{margin-bottom:.45rem; font-size:.96rem}
+  .stop-list strong{color:#fff; font-weight:500}
+  .stop-stack{margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.35rem}
+
+  /* projects */
+  .proj-grid{display:grid; grid-template-columns:1fr; gap:1.2rem}
+  @media(min-width:720px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+  .proj{
+    background:var(--paper-card); border:1px solid var(--hair); padding:1.5rem 1.5rem 1.35rem;
+    display:flex; flex-direction:column; transition:transform .18s, border-color .18s;
+  }
+  .proj:hover{transform:translateY(-3px); border-color:var(--ink)}
+  .proj-top{display:flex; justify-content:space-between; align-items:baseline; gap:1rem}
+  .proj-date{font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; color:var(--muted); white-space:nowrap}
+  .proj-name{font-family:var(--display); font-weight:600; font-size:1.1rem; margin:.5rem 0 .1rem; letter-spacing:-.01em}
+  .proj-ctx{font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--signal-live); margin:0 0 .7rem}
+  .proj-desc{margin:0 0 1rem; font-size:.95rem; color:#3B4C5D}
+  .proj-foot{margin-top:auto; display:flex; flex-wrap:wrap; gap:.35rem; align-items:center}
+  .chip{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.04em; color:#33475A;
+    border:1px solid var(--hair); padding:.26rem .5rem; background:#F5F8FA; white-space:nowrap;
+  }
+  .repo{
+    margin-left:auto; font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+    text-decoration:none; border-bottom:2px solid var(--signal); padding-bottom:1px; white-space:nowrap;
+  }
+
+  /* skills */
+  .skill-grid{display:grid; grid-template-columns:1fr; gap:0; border-top:2px solid var(--ink)}
+  .skill-row{padding:1.15rem 0; border-bottom:1px solid var(--hair); display:grid; grid-template-columns:1fr; gap:.7rem}
+  @media(min-width:820px){.skill-row{grid-template-columns:230px 1fr; gap:1.5rem; align-items:start}}
+  .skill-k{font-family:var(--mono); font-size:.72rem; letter-spacing:.13em; text-transform:uppercase; font-weight:500; padding-top:.2rem}
+  .skill-v{display:flex; flex-wrap:wrap; gap:.35rem}
+
+  /* education + certifications */
+  .two-col{display:grid; grid-template-columns:1fr; gap:3rem}
+  @media(min-width:900px){.two-col{grid-template-columns:1.25fr 1fr; gap:4rem}}
+  .edu{border-top:2px solid var(--ink)}
+  .edu-item{padding:1.05rem 0; border-bottom:1px solid var(--hair)}
+  .edu-date{font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; color:var(--muted)}
+  .edu-deg{font-family:var(--display); font-weight:600; font-size:1.02rem; margin:.3rem 0 .12rem}
+  .edu-school{font-size:.9rem; color:#4C5F72}
+
+  .cert{border-top:2px solid var(--ink)}
+  .cert-item{padding:.9rem 0; border-bottom:1px solid var(--hair); display:flex; gap:1rem; align-items:baseline}
+  .cert-date{font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; color:var(--muted); flex:none; width:62px}
+  .cert-name{font-size:.94rem; font-weight:500}
+  .cert-tag{
+    font-family:var(--mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+    background:var(--signal); color:var(--ink); padding:.1rem .4rem; margin-left:.45rem; font-weight:600; white-space:nowrap;
+  }
+
+  .lang-list{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:2.4rem}
+  .lang-pill{border:1px solid var(--hair); padding:.55rem .85rem; background:var(--paper-card); min-width:110px}
+  .lang-pill b{display:block; font-family:var(--display); font-weight:600; font-size:.95rem}
+  .lang-pill span{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; color:var(--muted)}
+
+  /* contact */
+  .contact-grid{display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:start}
+  @media(min-width:820px){.contact-grid{grid-template-columns:1.1fr 1fr; gap:4rem}}
+  .contact-lede{font-size:clamp(1.15rem,2.4vw,1.6rem); font-family:var(--display); font-weight:500; letter-spacing:-.015em; margin:0 0 1.4rem; max-width:22ch; line-height:1.25}
+  .contact-sub{color:#C0D0DE; font-weight:300; max-width:46ch; margin:0}
+  .contact-list{border-top:1px solid var(--hair-dark)}
+  .contact-row{
+    display:flex; gap:1rem; padding:.95rem 0; border-bottom:1px solid var(--hair-dark);
+    align-items:baseline; text-decoration:none;
+  }
+  .contact-row .k{font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted-dark); flex:0 0 86px}
+  .contact-row .v{font-size:.95rem; transition:color .16s}
+  .contact-row:hover .v{color:var(--signal)}
+
+  footer{background:var(--ink); color:var(--muted-dark); padding:2rem 0 2.6rem; border-top:1px solid var(--hair-dark)}
+  .foot-in{display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase}
+
+  :focus-visible{outline:2px solid var(--signal); outline-offset:3px}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important}
+  }
+  @media print{
+    .topbar,.hero-cta,.lang{display:none}
+    body{background:#fff}
+    .band-dark,.hero,footer{background:#fff !important; color:#000 !important}
+    .stop-list,.contact-sub{color:#222 !important}
+  }
+</style>
+</head>
 <body>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BB8W2X"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header-tops">
-    <div class="container">
-
-      <h1><a href="index.html">MOGHAR ALI</a></h1>
-      <h2 style="color:#fff">I'm <span class="typing" style="color:#12D640"></span></h2>
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="#header"><span>Home</span></a></li>
-          <li><a href="#about"><span>About</span></a></li>
-          <li><a href="#education"><span>Education</span></a></li>
-          <li><a href="#experience"><span>Experience</span></a></li>
-          <li><a href="#portfolio"><span>Projects</span></a></li>
-          <li><a href="#skills"><span>Skills</span></a></li>
-          <!-- Mets ici ton CV à jour (Drive / Notion / PDF) -->
-          <li><a href="https://drive.google.com/file/d/1ZaHWqnRFjVMDVDb7_MkbNSA_N38Rxg1i/view?usp=sharing" target="_blank"><span>Resume</span></a></li>
-          <li><a href="#contacts"><span>Contact</span></a></li>
-        </ul>
-      </nav>
-
-      <div class="social-links">
-          <a href="https://www.linkedin.com/in/ali-moghar-911ab1249/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/Moghar12" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-          <a href="mailto:mohamedali.moghar@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-      </div>
-
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top">MOGHAR<span>.</span>ALI</a>
+    <nav class="site-nav" id="siteNav" aria-label="Main"></nav>
+    <div class="lang" id="langSwitch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-set-lang="fr" aria-pressed="false">FR</button>
+      <button type="button" data-set-lang="de" aria-pressed="false">DE</button>
     </div>
-  </header><!-- End Header -->
+  </div>
+</header>
 
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
+<section class="hero" id="top">
+  <div class="wrap">
+    <h1 class="hero-name">Moghar Ali</h1>
+    <p class="hero-role"><span id="typedRole"></span><span class="caret" aria-hidden="true"></span></p>
+    <p class="hero-lede" id="heroLede"></p>
 
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-      <div class="section-title">
-        <h2>About</h2>
+    <div class="board" id="board"></div>
+
+    <div class="stack-strip" id="heroStack"></div>
+
+    <div class="hero-cta">
+      <!-- Remplace ce lien par ton CV à jour (Drive / PDF) -->
+      <a class="btn" id="ctaResume" href="https://drive.google.com/file/d/1ZaHWqnRFjVMDVDb7_MkbNSA_N38Rxg1i/view?usp=sharing" target="_blank" rel="noopener"></a>
+      <a class="btn ghost" id="ctaContact" href="#contact"></a>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="band" id="about">
+    <div class="wrap">
+      <p class="eyebrow" id="ey-about"></p>
+      <h2 class="sec-title" id="t-about"></h2>
+      <div class="about-grid">
+        <div class="about-text" id="aboutText"></div>
+        <div class="facts" id="facts"></div>
       </div>
-
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/profile.jpeg" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <p>
-            Master’s student (M2) focused on <b>Generative AI</b>, <b>RAG</b> and <b>multi-agent systems</b>.
-            I build practical AI solutions for real workflows: document transformation (PDF/OCR),
-            semantic search, evaluation/guardrails, deployment and user enablement.
-          </p>
-
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> Poitiers, France</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +33 7 54 83 76 85</li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> mohamedali.moghar@gmail.com</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Focus:</strong> GenAI • RAG • MLOps</li>
-              </ul>
-            </div>
-          </div>
-
-          <div style="margin-top:10px;">
-            <span class="badge-skill">LLM / Prompt Engineering</span>
-            <span class="badge-skill">RAG (FAISS, pgvector, BM25)</span>
-            <span class="badge-skill">LangChain / LangGraph</span>
-            <span class="badge-skill">Evaluation (Ragas, DeepEval)</span>
-            <span class="badge-skill">Docker / CI/CD</span>
-            <span class="badge-skill">GCP Vertex AI / AWS / Azure</span>
-          </div>
-
-        </div>
-      </div>
-    </div><!-- End About Me -->
-
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-      <div class="section-title">
-        <h2>Interests</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-database-2-line" style="color: #5578ff;"></i>
-            <h3>RAG / Search</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-robot-line" style="color: #ffbb2c;"></i>
-            <h3>Multi-Agents</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-file-list-3-line" style="color: #47aeff;"></i>
-            <h3>PDF / OCR Pipelines</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="ri-bar-chart-box-line" style="color: #f1081f;"></i>
-            <h3>Evaluation & Guardrails</h3>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Interests -->
-
-  </section><!-- End About Section -->
-
-  <!-- ======= Education Section ======= -->
-  <section id="education" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Education</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12" data-aos="fade-up" style="display: inline-block;">
-
-          <!-- Master 2 Poitiers -->
-          <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-            <img src="assets/img/education/univ-poitiers.jpg" class="img-fluid" alt="">
-            <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>Master 2 — IoT Engineering</em></p>
-            <h5 style="text-align:left;padding: 0px 10px;">Sep 2025 - Sep 2026</h5>
-            <ul style="text-align:left;color:#fff;">
-              <li>Embedded & IoT Systems</li>
-              <li>Data / Cloud for IoT</li>
-              <li>Applied AI Projects</li>
-            </ul>
-          </div>
-
-          <!-- Master Excellence Ibn Tofail -->
-          <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="120" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-            <img src="assets/img/education/uit.png" class="img-fluid" alt="">
-            <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>Master of Excellence — AI & IoT</em></p>
-            <h5 style="text-align:left;padding: 0px 10px;">Sep 2024 - Sep 2026</h5>
-            <ul style="text-align:left;color:#fff;">
-              <li>LLMs / RAG</li>
-              <li>Machine Learning</li>
-              <li>Deep Learning</li>
-            </ul>
-          </div>
-
-          <!-- Licence -->
-          <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="140" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-            <img src="assets/img/education/uit.png" class="img-fluid" alt="">
-            <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>BSc — AI & Data Engineering</em></p>
-            <h5 style="text-align:left;padding: 0px 10px;">Sep 2023 - Jun 2024</h5>
-            <ul style="text-align:left;color:#fff;">
-              <li>ML / DL</li>
-              <li>Big Data</li>
-              <li>Image Processing</li>
-            </ul>
-          </div>
-
-          <!-- DUT -->
-          <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="160" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-            <img src="assets/img/education/est.png" class="img-fluid" alt="">
-            <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>DUT — Computer Science</em></p>
-            <h5 style="text-align:left;padding: 0px 10px;">Sep 2021 - Jun 2023</h5>
-            <ul style="text-align:left;color:#fff;">
-              <li>Databases</li>
-              <li>Operating Systems</li>
-              <li>Web Development</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="portfolio">
-        <div class="container">
-          <div class="section-title">
-            <h2>Online Certification</h2>
-          </div>
-
-          <div class="row portfolio-container">
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-              <div class="portfolio-wrap">
-                <img src="assets/img/certification/aws.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>DevOps on AWS Specialization</h4>
-                  <div class="portfolio-links">
-                    <a href="https://www.credly.com/" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-              <div class="portfolio-wrap">
-                <img src="assets/img/certification/ibm.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>IBM Machine Learning Professional</h4>
-                  <div class="portfolio-links">
-                    <a href="https://www.credly.com/" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-              <div class="portfolio-wrap">
-                <img src="assets/img/certification/ibm.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>IBM Data Engineering Essentials</h4>
-                  <div class="portfolio-links">
-                    <a href="https://www.credly.com/" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /row -->
-        </div>
-      </div>
-
     </div>
   </section>
-  <!-- End Education Section -->
 
-  <!-- Start Experience Section -->
-  <section id="experience" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Experience</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12" data-aos="fade-up">
-
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <h4 style="text-align:left;"><a style="color:#12d640">EF2C Consulting</a></h4>
-            <h5 style="text-align:left;">Oct 2025 - Jan 2026</h5>
-            <p style="text-align:left;color:#fff"><em>AI Engineer (Apprenticeship)</em></p>
-            <ul style="text-align:left;">
-              <li>Built an AI-driven platform for academic content generation: <b>generation, structuring, validation</b> with LLMs and multi-agents.</li>
-              <li>Orchestrated workflows (LangChain) and integrated LLM APIs for generation, rephrasing and summarization.</li>
-              <li>Backend + data layer with Firebase (auth, storage, realtime) and continuous quality improvements.</li>
-            </ul>
-          </div>
-
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="120">
-            <h4 style="text-align:left;"><a style="color:#12d640">EF2C Consulting</a></h4>
-            <h5 style="text-align:left;">Jun 2024 - Apr 2025</h5>
-            <p style="text-align:left;color:#fff"><em>Software Engineer (Web & AI)</em></p>
-            <ul style="text-align:left;">
-              <li>Designed and developed a training management CRM (Laravel, MySQL).</li>
-              <li>Implemented GenAI-based content generation features and automated learning workflows.</li>
-              <li>Documentation, iterative improvements, and user support.</li>
-            </ul>
-          </div>
-
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="140">
-            <h4 style="text-align:left;"><a style="color:#12d640">NEXT LEVEL</a></h4>
-            <h5 style="text-align:left;">Apr 2023 - Jun 2023</h5>
-            <p style="text-align:left;color:#fff"><em>Web Developer Intern</em></p>
-            <ul style="text-align:left;">
-              <li>Developed a management platform connected to an e-commerce system (products, orders, users).</li>
-              <li>Feature implementation, testing and bug fixing in an iterative delivery cycle.</li>
-            </ul>
-          </div>
-
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="160">
-            <h4 style="text-align:left;"><a style="color:#12d640">ISC International</a></h4>
-            <h5 style="text-align:left;">Jun 2022 - Aug 2022</h5>
-            <p style="text-align:left;color:#fff"><em>Software Developer Intern</em></p>
-            <ul style="text-align:left;">
-              <li>Technical support and troubleshooting on existing applications.</li>
-              <li>Performance optimization and workflow improvements.</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
+  <section class="band band-dark" id="experience">
+    <div class="wrap">
+      <p class="eyebrow" id="ey-exp"></p>
+      <h2 class="sec-title" id="t-exp"></h2>
+      <div class="rail" id="rail"></div>
     </div>
   </section>
-  <!-- End Experience Section -->
 
-  <!-- Start Project Section -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-      <div class="section-title">
-        <h2>Projects</h2>
-      </div>
-      <br>
-
-      <div class="row portfolio-container">
-
-        <!-- DDRM RAG -->
-        <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-          <center><h4>DDRM RAG Chatbot (SERLI)</h4></center>
-          <div class="portfolio-wrap">
-            <!-- Ajoute une image: assets/img/project/ddrm_rag.jpg -->
-            <img src="assets/img/project/ddrm_rag_chatbot.png" class="img-fluid portfolio-img" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://github.com/Moghar12" target="_blank" title="GitHub"><i class="bx bxl-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Multi-Agent GitHub assistant -->
-        <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-          <center><h4>Multi-Agent GitHub Code Assistant</h4></center>
-          <div class="portfolio-wrap">
-            <!-- Ajoute une image: assets/img/project/ai_agent.jpg -->
-            <img src="assets/img/project/ai_agent.jpg" class="img-fluid portfolio-img" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://github.com/Moghar12/ai-agent" target="_blank" title="GitHub"><i class="bx bxl-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CRM -->
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <center><h4>CRM Leads (Laravel)</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/crm.png" class="img-fluid portfolio-img" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://github.com/Moghar12/crm-web-app" target="_blank" title="GitHub"><i class="bx bxl-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- GreenGuard -->
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <center><h4>GreenGuard AI (CNN)</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/greenguard.png" class="img-fluid portfolio-img" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://github.com/Moghar12/GreenGuard-be" target="_blank" title="GitHub"><i class="bx bxl-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Optional: keep old projects as "Other" -->
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <center><h4>World Cup 2030 (Legacy)</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/iras.jpeg" class="img-fluid portfolio-img" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="#" title="Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /portfolio-container -->
+  <section class="band" id="projects">
+    <div class="wrap">
+      <p class="eyebrow" id="ey-proj"></p>
+      <h2 class="sec-title" id="t-proj"></h2>
+      <div class="proj-grid" id="projGrid"></div>
     </div>
   </section>
-  <!-- End Project Section -->
 
-  <!-- Start Skills Section -->
-  <section id="skills" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
+  <section class="band" id="skills">
+    <div class="wrap">
+      <p class="eyebrow" id="ey-skills"></p>
+      <h2 class="sec-title" id="t-skills"></h2>
+      <div class="skill-grid" id="skillGrid"></div>
+    </div>
+  </section>
 
-      <div class="row">
-        <div class="col-lg-12" data-aos="fade-up">
-
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="background:#fff">
-            <h4 style="text-align:left;color:#09203a">Core</h4>
-            <p style="text-align:left;">
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Python</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">PHP</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">C / C++</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Java</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">JavaScript</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Laravel</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">MERN</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">MongoDB</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">NodeJs</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">SQL</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Pandas / NumPy</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">scikit-learn</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">PyTorch / TensorFlow</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">OpenCV</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">REST / OpenAPI</span>
-            </p>
-          </div>
-
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="120" style="background:#fff">
-            <h4 style="text-align:left;color:#09203a">GenAI / RAG</h4>
-            <p style="text-align:left;">
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">LangChain</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">LangGraph</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">OpenAI Agent SDK</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">LlamaIndex</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">FAISS</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">pgvector</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">BM25 / Hybrid Search</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Ragas / DeepEval</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Pydantic Guardrails</span>
-            </p>
-          </div>
-
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="140" style="background:#fff">
-            <h4 style="text-align:left;color:#09203a">MLOps / Cloud</h4>
-            <p style="text-align:left;">
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Docker</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Git / GitHub Actions / GitLab CI</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">pytest / Poetry</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">GCP (Vertex AI, BigQuery, Cloud Run)</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">AWS (S3, Lambda, Bedrock)</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Azure (AI Studio)</span>
-            </p>
-          </div>
-<div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="140" style="background:#fff">
-            <h4 style="text-align:left;color:#09203a">No Code / Low Code</h4>
-            <p style="text-align:left;">
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Firebase</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Supabase</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">n8n</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Github Copilot</span>
-              <span class="badge-skill" style="color:#09203a;border-color:#ddd;background:#f7f7f7;">Cursor</span>
-            </p>
-          </div>
+  <section class="band" id="education">
+    <div class="wrap">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow" id="ey-edu"></p>
+          <h2 class="sec-title" id="t-edu"></h2>
+          <div class="edu" id="eduList"></div>
+        </div>
+        <div>
+          <p class="eyebrow" id="ey-cert"></p>
+          <h2 class="sec-title" id="t-cert"></h2>
+          <div class="cert" id="certList"></div>
+          <p class="eyebrow" style="margin-top:2.6rem" id="ey-langs"></p>
+          <div class="lang-list" id="langList"></div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Skills Section -->
 
-  <!-- Start Contact Section -->
-  <section id="contacts" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Poitiers, France</p>
-          </div>
+  <section class="band band-dark" id="contact">
+    <div class="wrap">
+      <p class="eyebrow" id="ey-contact"></p>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-lede" id="contactLede"></p>
+          <p class="contact-sub" id="contactSub"></p>
         </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/ali-moghar-911ab1249/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              <a href="https://github.com/Moghar12" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-              <a href="mailto:mohamedali.moghar@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email</h3>
-            <p>mohamedali.moghar@gmail.com</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Contact</h3>
-            <p>+33 7 54 83 76 85</p>
-          </div>
-        </div>
-
+        <div class="contact-list" id="contactList"></div>
       </div>
     </div>
   </section>
-  <!-- End Contact Section -->
+</main>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/vendor/counterup/counterup.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
+<footer>
+  <div class="wrap foot-in">
+    <span>© <span id="year"></span> Ali Moghar</span>
+    <span id="footNote"></span>
+  </div>
+</footer>
 
-  <script type="text/javascript">
-    var typed = new Typed('.typing',{
-      strings: [
-        "AI Engineer",
-        "GenAI / RAG Specialist",
-        "Multi-Agent Systems Builder",
-        "MLOps & Deployment"
+<script>
+/* =====================================================================
+   CONTENU — une seule source de vérité, 3 langues (en / fr / de)
+   Pour modifier le site : édite uniquement les objets ci-dessous.
+   ===================================================================== */
+
+const UI = {
+  nav: {
+    about:      {en:"About",       fr:"Profil",      de:"Profil"},
+    experience: {en:"Experience",  fr:"Expérience",  de:"Erfahrung"},
+    projects:   {en:"Projects",    fr:"Projets",     de:"Projekte"},
+    skills:     {en:"Skills",      fr:"Compétences", de:"Kenntnisse"},
+    education:  {en:"Education",   fr:"Formation",   de:"Ausbildung"},
+    contact:    {en:"Contact",     fr:"Contact",     de:"Kontakt"}
+  },
+  roles: {
+    en:["AI Engineer","GenAI & RAG Engineer","LLM & Multi-Agent Systems","Full-Stack AI Developer"],
+    fr:["Ingénieur IA","Ingénieur GenAI & RAG","Systèmes LLM & multi-agents","Développeur IA full-stack"],
+    de:["KI-Ingenieur","GenAI- & RAG-Ingenieur","LLM- & Multi-Agenten-Systeme","Full-Stack-KI-Entwickler"]
+  },
+  lede: {
+    en:"Engineer with a Master's degree in AI and IoT. I build applied AI for industrial workflows — document pipelines, retrieval, evaluation and deployment. Currently building <strong>VIALAB</strong> at SNCF Réseau: a full-stack AI platform that industrialises validation testing for a critical railway telephony system.",
+    fr:"Ingénieur diplômé d'un Master en IA et IoT. Je conçois de l'IA appliquée aux processus industriels — pipelines documentaires, recherche sémantique, évaluation et déploiement. Je développe actuellement <strong>VIALAB</strong> chez SNCF Réseau : une plateforme IA full-stack qui industrialise les tests de validation d'un système de téléphonie ferroviaire critique.",
+    de:"Ingenieur mit Master-Abschluss in KI und IoT. Ich entwickle angewandte KI für industrielle Prozesse — Dokumenten-Pipelines, semantische Suche, Evaluierung und Deployment. Aktuell entsteht <strong>VIALAB</strong> bei SNCF Réseau: eine Full-Stack-KI-Plattform, die die Validierungstests eines kritischen Bahntelefonie-Systems industrialisiert."
+  },
+  board: {
+    status:  {en:"Status",       fr:"Statut",        de:"Status"},
+    statusV: {en:"Open to offers", fr:"Ouvert aux offres", de:"Offen für Angebote"},
+    from:    {en:"Available",    fr:"Disponible",    de:"Verfügbar"},
+    fromV:   {en:"From 09/2026", fr:"Dès 09/2026",   de:"Ab 09/2026"},
+    dest:    {en:"Destination",  fr:"Destination",   de:"Zielort"},
+    destV:   {en:"Germany-wide · will relocate", fr:"Toute l'Allemagne · mobile", de:"Deutschlandweit · umzugsbereit"},
+    contract:{en:"Contract",     fr:"Contrat",       de:"Vertrag"},
+    contractV:{en:"Permanent",   fr:"CDI",           de:"Festanstellung"}
+  },
+  cta: {
+    resume:  {en:"Download CV",  fr:"Télécharger le CV", de:"Lebenslauf ansehen"},
+    contact: {en:"Get in touch", fr:"Me contacter",      de:"Kontakt aufnehmen"}
+  },
+  titles: {
+    about:   {en:"Applied AI, built end to end",       fr:"De l'IA appliquée, de bout en bout",     de:"Angewandte KI, von Anfang bis Ende"},
+    exp:     {en:"Where I've worked",                  fr:"Mon parcours",                           de:"Beruflicher Werdegang"},
+    proj:    {en:"Selected projects",                  fr:"Projets sélectionnés",                   de:"Ausgewählte Projekte"},
+    skills:  {en:"Technical stack",                    fr:"Stack technique",                        de:"Technischer Stack"},
+    edu:     {en:"Education",                          fr:"Formation",                              de:"Ausbildung"},
+    cert:    {en:"Certifications",                     fr:"Certifications",                         de:"Zertifizierungen"},
+    contactL:{en:"Let's talk about your AI roadmap.",  fr:"Parlons de votre feuille de route IA.",  de:"Sprechen wir über Ihre KI-Roadmap."},
+    contactS:{en:"I'm looking for a permanent AI / GenAI engineering role from September 2026, in Germany or remote-friendly across Europe. Written and spoken German at B2, English at B2, French at C1.",
+              fr:"Je recherche un CDI d'ingénieur IA / GenAI à partir de septembre 2026, en Allemagne ou en remote en Europe. Allemand B2, anglais B2, français C1.",
+              de:"Ich suche ab September 2026 eine Festanstellung als KI-/GenAI-Ingenieur in Deutschland oder europaweit remote. Deutsch B2, Englisch B2, Französisch C1."}
+  },
+  eyebrows: {
+    about:  {en:"Profile",        fr:"Profil",           de:"Profil"},
+    exp:    {en:"Experience",     fr:"Expérience",       de:"Erfahrung"},
+    proj:   {en:"Projects",       fr:"Projets",          de:"Projekte"},
+    skills: {en:"Skills",         fr:"Compétences",      de:"Kenntnisse"},
+    edu:    {en:"Education",      fr:"Formation",        de:"Ausbildung"},
+    cert:   {en:"Certifications", fr:"Certifications",   de:"Zertifizierungen"},
+    langs:  {en:"Languages",      fr:"Langues",          de:"Sprachen"},
+    contact:{en:"Contact",        fr:"Contact",          de:"Kontakt"}
+  },
+  factK: {
+    based:  {en:"Based in",  fr:"Basé à",     de:"Standort"},
+    focus:  {en:"Focus",     fr:"Spécialité", de:"Schwerpunkt"},
+    avail:  {en:"Available", fr:"Disponible", de:"Verfügbar"},
+    mobility:{en:"Mobility", fr:"Mobilité",   de:"Mobilität"},
+    email:  {en:"Email",     fr:"E-mail",     de:"E-Mail"},
+    phone:  {en:"Phone",     fr:"Téléphone",  de:"Telefon"}
+  },
+  factV: {
+    based:   {en:"Paris, France",  fr:"Paris, France", de:"Paris, Frankreich"},
+    focus:   {en:"LLM · RAG · Multi-agent systems", fr:"LLM · RAG · Systèmes multi-agents", de:"LLM · RAG · Multi-Agenten-Systeme"},
+    avail:   {en:"September 2026", fr:"Septembre 2026", de:"September 2026"},
+    mobility:{en:"Germany-wide relocation", fr:"Mobile dans toute l'Allemagne", de:"Umzugsbereit, deutschlandweit"}
+  },
+  current: {en:"Current", fr:"En cours", de:"Laufend"},
+  inProgress: {en:"In progress", fr:"En cours", de:"In Vorbereitung"},
+  repo: {en:"Repository", fr:"Dépôt", de:"Repository"},
+  footNote: {en:"Built from scratch · EN / FR / DE", fr:"Site développé from scratch · EN / FR / DE", de:"Eigenentwicklung · EN / FR / DE"}
+};
+
+const HERO_STACK = ["Python","FastAPI","Django","React","PostgreSQL","Docker","LangChain","LangGraph","RAG","Fine-tuning","Microservices","Azure","AWS","GCP"];
+
+const EXPERIENCE = [
+  {
+    current:true,
+    period:"04/2026 — 09/2026",
+    role:{
+      en:"End-of-studies internship — AI for test automation & homologation (critical telephony)",
+      fr:"Stage de fin d'études — IA appliquée aux tests & homologation (téléphonie critique)",
+      de:"Abschlusspraktikum — KI für Testautomatisierung & Homologation (kritische Telefonie)"
+    },
+    org:{
+      en:"SNCF Réseau — La Plaine Saint-Denis, France",
+      fr:"SNCF Réseau — La Plaine Saint-Denis, France",
+      de:"SNCF Réseau — La Plaine Saint-Denis, Frankreich"
+    },
+    bullets:{
+      en:[
+        "Designed and built <strong>VIALAB</strong> single-handedly — a full-stack AI platform (FastAPI, React, PostgreSQL, Docker) that industrialises the validation tests (VABF) of <strong>FERCOM</strong>, a critical railway telephony system, replacing an entirely manual Excel-based process.",
+        "Implemented <strong>RAG pipelines</strong> and <strong>LLM orchestration</strong> for test-case generation, result write-up and anomaly classification.",
+        "Presented the platform to <strong>174 colleagues</strong> to strong internal reception.",
+        "Defined 4 KPI families (quality, detection rate, time saved, reliability) tracked through dashboards.",
+        "Ongoing qualification of the platform with SNCF's internal LabIA team."
       ],
-      loop: true,
-      typeSpeed: 55,
-      backSpeed: 35
-    });
-  </script>
+      fr:[
+        "Conception et développement en autonomie de <strong>VIALAB</strong> — plateforme IA full-stack (FastAPI, React, PostgreSQL, Docker) industrialisant les tests de validation (VABF) de <strong>FERCOM</strong>, système de téléphonie ferroviaire critique, en remplacement d'un processus entièrement manuel sous Excel.",
+        "Mise en œuvre de <strong>pipelines RAG</strong> et d'une <strong>orchestration LLM</strong> pour la génération de cas de test, la rédaction des résultats et la qualification d'anomalies.",
+        "Présentation de la plateforme devant <strong>174 collaborateurs</strong>, avec un très bon accueil.",
+        "Définition de 4 familles de KPIs (qualité, taux de détection, gain de temps, fiabilité) suivies via tableaux de bord.",
+        "Processus de qualification en cours avec le LabIA interne de SNCF."
+      ],
+      de:[
+        "Eigenständige Konzeption und Entwicklung von <strong>VIALAB</strong> — einer Full-Stack-KI-Plattform (FastAPI, React, PostgreSQL, Docker) zur Industrialisierung der Validierungstests (VABF) des kritischen Bahntelefonie-Systems <strong>FERCOM</strong>, als Ablösung eines vollständig manuellen, Excel-basierten Prozesses.",
+        "Implementierung von <strong>RAG-Pipelines</strong> und <strong>LLM-Orchestrierung</strong> für Testfallgenerierung, Ergebnisdokumentation und Anomalieklassifizierung.",
+        "Präsentation der Plattform vor <strong>174 Mitarbeitenden</strong> mit sehr positiver Resonanz.",
+        "Einführung von 4 KPI-Kategorien (Qualität, Erkennungsrate, Zeitersparnis, Zuverlässigkeit) über Dashboards.",
+        "Laufender Qualifizierungsprozess mit dem internen LabIA-Team von SNCF."
+      ]
+    },
+    stack:["FastAPI","React","PostgreSQL","Docker","RAG","LLM orchestration","pgvector"]
+  },
+  {
+    period:"10/2025 — 01/2026",
+    role:{
+      en:"AI Engineer (apprenticeship)",
+      fr:"Alternant ingénieur IA",
+      de:"Werkstudent — KI-Ingenieur (Alternanz)"
+    },
+    org:{en:"EF2C Consulting — Paris, France", fr:"EF2C Consulting — Paris, France", de:"EF2C Consulting — Paris, Frankreich"},
+    bullets:{
+      en:[
+        "Designed and developed a generative-AI platform producing academic course content end to end.",
+        "Built LLM and multi-agent architectures (<strong>LangGraph</strong>) for generation, structuring and automated validation, cutting manual review effort.",
+        "Orchestrated LangChain workflows for prompting, task planning and content consistency.",
+        "Integrated OpenAI models for generation, rephrasing and summarisation.",
+        "Backend and data layer on Firebase (auth, storage, realtime)."
+      ],
+      fr:[
+        "Conception et développement d'une plateforme d'IA générative produisant des contenus de cours de bout en bout.",
+        "Architectures LLM et multi-agents (<strong>LangGraph</strong>) pour la génération, la structuration et la validation automatique, réduisant l'effort de relecture manuelle.",
+        "Orchestration de workflows LangChain : prompting, planification des tâches, cohérence des contenus.",
+        "Intégration de modèles OpenAI pour la génération, la reformulation et la synthèse.",
+        "Backend et couche de données sur Firebase (auth, stockage, temps réel)."
+      ],
+      de:[
+        "Konzeption und Entwicklung einer generativen KI-Plattform zur durchgängigen Erstellung akademischer Kursinhalte.",
+        "Aufbau von LLM- und Multi-Agenten-Architekturen (<strong>LangGraph</strong>) für Generierung, Strukturierung und automatische Validierung — Reduzierung des manuellen Korrekturaufwands.",
+        "Orchestrierung von LangChain-Workflows: Prompting, Aufgabenplanung, inhaltliche Konsistenz.",
+        "Integration von OpenAI-Modellen für Generierung, Umformulierung und Zusammenfassung.",
+        "Backend und Datenhaltung mit Firebase (Authentifizierung, Speicherung, Echtzeit)."
+      ]
+    },
+    stack:["LangGraph","LangChain","OpenAI","Python","Firebase"]
+  },
+  {
+    period:"06/2024 — 04/2025",
+    role:{en:"Web & AI Developer (internship)", fr:"Stagiaire développeur web & IA", de:"Praktikum — Web- & KI-Entwicklung"},
+    org:{en:"EF2C Consulting", fr:"EF2C Consulting", de:"EF2C Consulting"},
+    bullets:{
+      en:[
+        "Designed and built a CRM for managing online training programmes (Laravel, MySQL).",
+        "Implemented GenAI-based automatic content generation.",
+        "Automated learning workflows and improved the user experience."
+      ],
+      fr:[
+        "Conception et développement d'un CRM de gestion de formations en ligne (Laravel, MySQL).",
+        "Mise en place d'un système de génération automatique de contenu basé sur l'IA générative.",
+        "Automatisation des workflows pédagogiques et amélioration de l'expérience utilisateur."
+      ],
+      de:[
+        "Konzeption und Entwicklung eines CRM-Systems zur Verwaltung von Online-Schulungen (Laravel, MySQL).",
+        "Implementierung einer automatischen Content-Generierung mittels generativer KI.",
+        "Automatisierung pädagogischer Workflows und Verbesserung der Nutzererfahrung."
+      ]
+    },
+    stack:["Laravel","PHP","MySQL","GenAI"]
+  },
+  {
+    period:"04/2023 — 06/2023",
+    role:{en:"Web Developer (internship)", fr:"Stagiaire développeur web", de:"Praktikum — Webentwicklung"},
+    org:{en:"NEXT LEVEL", fr:"NEXT LEVEL", de:"NEXT LEVEL"},
+    bullets:{
+      en:[
+        "Built a management platform connected to an e-commerce system.",
+        "Created interfaces for products, orders and user management."
+      ],
+      fr:[
+        "Développement d'une plateforme de gestion intégrée à un système e-commerce.",
+        "Création d'interfaces pour la gestion des produits, commandes et utilisateurs."
+      ],
+      de:[
+        "Entwicklung einer in ein E-Commerce-System integrierten Verwaltungsplattform.",
+        "Erstellung von Oberflächen zur Verwaltung von Produkten, Bestellungen und Nutzern."
+      ]
+    },
+    stack:["PHP","JavaScript","MySQL"]
+  },
+  {
+    period:"06/2022 — 08/2022",
+    role:{en:"Software Developer (internship)", fr:"Stagiaire développeur", de:"Praktikum — Softwareentwicklung"},
+    org:{en:"ISC International", fr:"ISC International", de:"ISC International"},
+    bullets:{
+      en:["Technical support and troubleshooting on existing applications.","Performance optimisation and workflow improvements."],
+      fr:["Support technique et résolution de problèmes sur des applications existantes.","Optimisation des performances et amélioration des workflows."],
+      de:["Technischer Support und Fehlerbehebung bestehender Anwendungen.","Performance-Optimierung und Verbesserung von Arbeitsabläufen."]
+    },
+    stack:["Java","SQL"]
+  }
+];
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+const PROJECTS = [
+  {
+    date:"2025",
+    name:{en:"DDRM RAG Chatbot", fr:"Chatbot RAG — DDRM", de:"DDRM RAG-Chatbot"},
+    ctx:{en:"SERLI Poitiers", fr:"SERLI Poitiers", de:"SERLI Poitiers"},
+    desc:{
+      en:"Document chatbot over French major-risk records (DDRM). PDF→markdown extraction, metadata-aware chunking, hybrid search (vector + BM25) with reranking, and sourced answers citing page and section. Evaluated on faithfulness and relevance with Ragas/DeepEval.",
+      fr:"Chatbot documentaire sur les DDRM (risques majeurs). Extraction PDF→markdown, chunking enrichi de métadonnées, recherche hybride (vectorielle + BM25) avec reranking, réponses sourcées citant page et section. Évaluation faithfulness/relevance via Ragas/DeepEval.",
+      de:"Dokumenten-Chatbot für französische Risikodokumentation (DDRM). PDF→Markdown-Extraktion, metadatenbasiertes Chunking, hybride Suche (vektorbasiert + BM25) mit Reranking, quellenbasierte Antworten mit Seiten- und Abschnittsangabe. Evaluierung von Faithfulness/Relevance mit Ragas/DeepEval."
+    },
+    stack:["RAG","Embeddings","BM25","Reranking","Ragas","DeepEval"],
+    url:null
+  },
+  {
+    date:"07/2024 — 09/2024",
+    name:{en:"Multi-Agent GitHub Code Assistant", fr:"Assistant de code GitHub multi-agents", de:"Multi-Agenten-GitHub-Code-Assistent"},
+    ctx:{en:"Personal project", fr:"Projet personnel", de:"Privates Projekt"},
+    desc:{
+      en:"Multi-agent chatbot that analyses GitHub repositories and generates contextual code, built on LangChain and LLMs with a React front end and a Node.js / FastAPI back end.",
+      fr:"Chatbot multi-agents analysant des dépôts GitHub et générant du code contextualisé, basé sur LangChain et des LLMs, avec un front React et un back Node.js / FastAPI.",
+      de:"Multi-Agenten-Chatbot zur Analyse von GitHub-Repositories und kontextbezogenen Codegenerierung, auf Basis von LangChain und LLMs, mit React-Frontend und Node.js/FastAPI-Backend."
+    },
+    stack:["LangChain","LLM","React","Node.js","FastAPI"],
+    url:"https://github.com/Moghar12/devmate"
+  },
+  {
+    date:"06/2024 — 08/2024",
+    name:{en:"Lead Management CRM", fr:"CRM de gestion des leads", de:"CRM für Lead-Management"},
+    ctx:{en:"Personal project", fr:"Projet personnel", de:"Privates Projekt"},
+    desc:{
+      en:"CRM with automatic lead assignment, realtime notifications and analytics dashboards tracking conversion rates and KPIs.",
+      fr:"CRM avec attribution automatique des leads, notifications en temps réel et tableaux de bord analytiques (taux de conversion, KPIs).",
+      de:"CRM mit automatischer Lead-Zuweisung, Echtzeit-Benachrichtigungen und analytischen Dashboards (Konversionsrate, KPIs)."
+    },
+    stack:["Laravel","TailwindCSS","MySQL"],
+    url:"https://github.com/Moghar12/crm-web-app"
+  },
+  {
+    date:"02/2024 — 06/2024",
+    name:{en:"GreenGuard AI", fr:"GreenGuard AI", de:"GreenGuard AI"},
+    ctx:{en:"Personal project", fr:"Projet personnel", de:"Privates Projekt"},
+    desc:{
+      en:"Mobile app detecting plant diseases from photos using CNNs, with a local history gallery and cross-platform deployment on iOS and Android.",
+      fr:"Application mobile de détection de maladies des plantes par CNN, avec historique local, galerie intuitive et déploiement multiplateforme (iOS, Android).",
+      de:"Mobile Anwendung zur Erkennung von Pflanzenkrankheiten mittels CNN, mit lokalem Verlauf, intuitiver Galerie und plattformübergreifendem Deployment (iOS, Android)."
+    },
+    stack:["CNN","TensorFlow","Mobile","iOS / Android"],
+    url:"https://github.com/Moghar12/GreenGuard-be"
+  }
+];
 
+const SKILLS = [
+  {k:{en:"Languages & data",    fr:"Langages & data",       de:"Sprachen & Daten"},
+   v:["Python","SQL","Java","C++","JavaScript","PHP","NumPy","Pandas","scikit-learn","PyTorch","TensorFlow","OpenCV"]},
+  {k:{en:"Generative AI / LLM", fr:"IA générative / LLM",   de:"Generative KI / LLM"},
+   v:["GPT-4o","Gemini (Vertex AI)","Llama","Mistral","Prompt engineering","Fine-tuning","Embeddings","Tokenization"]},
+  {k:{en:"LLM frameworks & agents", fr:"Frameworks LLM & agents", de:"LLM-Frameworks & Agenten"},
+   v:["LangChain","LangGraph","LlamaIndex","Haystack","AutoGen","CrewAI","OpenAI Agents SDK"]},
+  {k:{en:"RAG",                 fr:"RAG",                   de:"RAG"},
+   v:["PDF / HTML ingestion","Chunking","Vector search","Hybrid search (BM25)","FAISS","pgvector","Reranking"]},
+  {k:{en:"Evaluation & guardrails", fr:"Évaluation & guardrails", de:"Evaluierung & Guardrails"},
+   v:["Ragas","DeepEval","promptfoo","Pydantic validation"]},
+  {k:{en:"Backend & architecture", fr:"Backend & architecture", de:"Backend & Architektur"},
+   v:["FastAPI","Django","Laravel","Symfony","MVC","Microservices","REST / OpenAPI","Node.js"]},
+  {k:{en:"Frontend",            fr:"Frontend",              de:"Frontend"},
+   v:["React (ReactJS)","TypeScript","TailwindCSS","Bootstrap"]},
+  {k:{en:"Cloud",               fr:"Cloud",                 de:"Cloud"},
+   v:["GCP (Vertex AI, BigQuery, Cloud Run, IAM)","AWS (Bedrock, S3, Lambda)","Azure (AI Studio)"]},
+  {k:{en:"MLOps / DevOps",      fr:"MLOps / DevOps",        de:"MLOps / DevOps"},
+   v:["Docker","Git","GitHub Actions","GitLab CI","CI/CD","pytest","Poetry"]},
+  {k:{en:"Databases & tooling", fr:"Bases de données & outils", de:"Datenbanken & Tools"},
+   v:["PostgreSQL","MySQL","MongoDB","Firebase","Supabase","n8n","GitHub Copilot","Cursor"]},
+  {k:{en:"Data protection",     fr:"Protection des données", de:"Datenschutz"},
+   v:["PII handling","GDPR / DSGVO fundamentals"]}
+];
+
+const EDUCATION = [
+  {date:"09/2025 — 09/2026",
+   deg:{en:"MSc 2 — IoT Engineering", fr:"Master 2 — Ingénierie des objets connectés (IoT)", de:"Master 2 — Ingenieurwesen vernetzter Objekte (IoT)"},
+   school:{en:"Université de Poitiers, France", fr:"Université de Poitiers, France", de:"Université de Poitiers, Frankreich"}},
+  {date:"09/2024 — 09/2026",
+   deg:{en:"Master of Excellence — Artificial Intelligence & IoT", fr:"Master d'Excellence — Intelligence artificielle & IoT", de:"Master of Excellence — Künstliche Intelligenz & IoT"},
+   school:{en:"Université Ibn Tofail, Morocco", fr:"Université Ibn Tofail, Maroc", de:"Université Ibn Tofail, Marokko"}},
+  {date:"09/2023 — 06/2024",
+   deg:{en:"BSc of Excellence — AI & Data Engineering", fr:"Licence d'Excellence — IA & Data Engineering", de:"Bachelor of Excellence — KI & Data Engineering"},
+   school:{en:"Université Ibn Tofail, Morocco", fr:"Université Ibn Tofail, Maroc", de:"Université Ibn Tofail, Marokko"}},
+  {date:"09/2021 — 06/2023",
+   deg:{en:"DUT — Computer Science", fr:"DUT — Informatique", de:"DUT — Informatik"},
+   school:{en:"EST Kénitra, Morocco", fr:"EST Kénitra, Maroc", de:"EST Kénitra, Marokko"}}
+];
+
+const CERTS = [
+  {date:"09/2026", name:"Microsoft Certified: Azure Fundamentals (AZ-900)", pending:true},
+  {date:"03/2025", name:"DevOps on AWS Specialization — AWS"},
+  {date:"09/2024", name:"Machine Learning Professional Certificate — IBM"},
+  {date:"07/2023", name:"Data Engineering Essentials — IBM"}
+];
+
+const SPOKEN = [
+  {name:{en:"French", fr:"Français", de:"Französisch"}, level:"C1"},
+  {name:{en:"English", fr:"Anglais",  de:"Englisch"},    level:"B2"},
+  {name:{en:"German",  fr:"Allemand", de:"Deutsch"},     level:"B2"},
+  {name:{en:"Arabic",  fr:"Arabe",    de:"Arabisch"},    level:{en:"Native", fr:"Langue maternelle", de:"Muttersprache"}}
+];
+
+const CONTACT = [
+  {k:{en:"Email", fr:"E-mail", de:"E-Mail"}, v:"mohamedali.moghar@gmail.com", href:"mailto:mohamedali.moghar@gmail.com"},
+  {k:{en:"Phone", fr:"Téléphone", de:"Telefon"}, v:"+33 7 54 83 76 85", href:"tel:+33754837685"},
+  {k:"LinkedIn", v:"/in/ali-moghar", href:"https://www.linkedin.com/in/ali-moghar-911ab1249/"},
+  {k:"GitHub", v:"/Moghar12", href:"https://github.com/Moghar12"},
+  {k:{en:"Location", fr:"Localisation", de:"Standort"}, v:{en:"Paris, France", fr:"Paris, France", de:"Paris, Frankreich"}, href:null}
+];
+
+/* =====================================================================
+   RENDU
+   ===================================================================== */
+
+let lang = "en";
+const t = (f) => (f && typeof f === "object" && !Array.isArray(f)) ? (f[lang] || f.en) : f;
+const el = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderNav(){
+  el("siteNav").innerHTML = Object.entries(UI.nav)
+    .map(([id, label]) => `<a href="#${id}">${esc(t(label))}</a>`).join("");
+}
+
+function renderHero(){
+  el("heroLede").innerHTML = t(UI.lede);
+  el("ctaResume").textContent = t(UI.cta.resume);
+  el("ctaContact").textContent = t(UI.cta.contact);
+  el("heroStack").innerHTML = HERO_STACK.map(s => `<span class="chip-dark">${esc(s)}</span>`).join("");
+
+  const b = UI.board;
+  el("board").innerHTML = `
+    <div class="board-cell"><span class="live-dot" aria-hidden="true"></span>
+      <span><span class="board-k">${esc(t(b.status))}</span><br><span class="board-v">${esc(t(b.statusV))}</span></span></div>
+    <div class="board-cell"><span><span class="board-k">${esc(t(b.from))}</span><br><span class="board-v amber">${esc(t(b.fromV))}</span></span></div>
+    <div class="board-cell"><span><span class="board-k">${esc(t(b.dest))}</span><br><span class="board-v">${esc(t(b.destV))}</span></span></div>
+    <div class="board-cell"><span><span class="board-k">${esc(t(b.contract))}</span><br><span class="board-v">${esc(t(b.contractV))}</span></span></div>`;
+}
+
+function renderAbout(){
+  el("ey-about").textContent  = t(UI.eyebrows.about);
+  el("t-about").textContent   = t(UI.titles.about);
+  el("aboutText").innerHTML = `<p>${t(UI.lede)}</p>` + {
+    en:`<p>My work sits where retrieval, evaluation and shipping meet: turning messy documents into searchable knowledge, wiring LLMs into workflows people actually use every day, and measuring whether the result holds up. On the way there I also build the platform around it — API, database, front end, containers.</p>
+        <p>Before AI I spent two years shipping web products in PHP and JavaScript, which is why I'm comfortable owning a feature from schema to interface rather than handing off a notebook.</p>`,
+    fr:`<p>Mon travail se situe à la jonction de la recherche d'information, de l'évaluation et de la mise en production : transformer des documents désordonnés en connaissance interrogeable, intégrer des LLMs dans des workflows réellement utilisés, et mesurer si le résultat tient la route. Et construire la plateforme autour : API, base de données, front, conteneurs.</p>
+        <p>Avant l'IA, j'ai passé deux ans à livrer des produits web en PHP et JavaScript — c'est pourquoi je porte une fonctionnalité du schéma de données jusqu'à l'interface, plutôt que de livrer un notebook.</p>`,
+    de:`<p>Meine Arbeit liegt dort, wo Retrieval, Evaluierung und Auslieferung zusammentreffen: unstrukturierte Dokumente in durchsuchbares Wissen verwandeln, LLMs in Workflows einbetten, die täglich genutzt werden, und messen, ob das Ergebnis standhält. Dazu gehört auch die Plattform drumherum: API, Datenbank, Frontend, Container.</p>
+        <p>Vor der KI habe ich zwei Jahre lang Webprodukte in PHP und JavaScript ausgeliefert — deshalb verantworte ich ein Feature vom Datenmodell bis zur Oberfläche, statt ein Notebook zu übergeben.</p>`
+  }[lang];
+
+  const f = UI.factK, fv = UI.factV;
+  el("facts").innerHTML = [
+    [t(f.based), esc(t(fv.based))],
+    [t(f.focus), esc(t(fv.focus))],
+    [t(f.avail), esc(t(fv.avail))],
+    [t(f.mobility), esc(t(fv.mobility))],
+    [t(f.email), `<a href="mailto:mohamedali.moghar@gmail.com">mohamedali.moghar@gmail.com</a>`],
+    [t(f.phone), `<a href="tel:+33754837685">+33 7 54 83 76 85</a>`]
+  ].map(([k,v]) => `<div class="fact"><span class="fact-k">${esc(k)}</span><span class="fact-v">${v}</span></div>`).join("");
+}
+
+function renderExperience(){
+  el("ey-exp").textContent = t(UI.eyebrows.exp);
+  el("t-exp").textContent  = t(UI.titles.exp);
+  el("rail").innerHTML = EXPERIENCE.map(x => `
+    <article class="stop${x.current ? " is-current" : ""}">
+      <span class="stop-node" aria-hidden="true"></span>
+      <p class="stop-meta">${esc(x.period)}${x.current ? `<span class="badge-live">${esc(t(UI.current))}</span>` : ""}</p>
+      <h3 class="stop-role">${esc(t(x.role))}</h3>
+      <p class="stop-org">${esc(t(x.org))}</p>
+      <ul class="stop-list">${t(x.bullets).map(b => `<li>${b}</li>`).join("")}</ul>
+      <div class="stop-stack">${x.stack.map(s => `<span class="chip-dark">${esc(s)}</span>`).join("")}</div>
+    </article>`).join("");
+}
+
+function renderProjects(){
+  el("ey-proj").textContent = t(UI.eyebrows.proj);
+  el("t-proj").textContent  = t(UI.titles.proj);
+  el("projGrid").innerHTML = PROJECTS.map(p => `
+    <article class="proj">
+      <div class="proj-top"><span class="proj-date">${esc(p.date)}</span></div>
+      <h3 class="proj-name">${esc(t(p.name))}</h3>
+      <p class="proj-ctx">${esc(t(p.ctx))}</p>
+      <p class="proj-desc">${esc(t(p.desc))}</p>
+      <div class="proj-foot">
+        ${p.stack.map(s => `<span class="chip">${esc(s)}</span>`).join("")}
+        ${p.url ? `<a class="repo" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(t(UI.repo))} →</a>` : ""}
+      </div>
+    </article>`).join("");
+}
+
+function renderSkills(){
+  el("ey-skills").textContent = t(UI.eyebrows.skills);
+  el("t-skills").textContent  = t(UI.titles.skills);
+  el("skillGrid").innerHTML = SKILLS.map(s => `
+    <div class="skill-row">
+      <div class="skill-k">${esc(t(s.k))}</div>
+      <div class="skill-v">${s.v.map(i => `<span class="chip">${esc(i)}</span>`).join("")}</div>
+    </div>`).join("");
+}
+
+function renderEducation(){
+  el("ey-edu").textContent  = t(UI.eyebrows.edu);
+  el("t-edu").textContent   = t(UI.titles.edu);
+  el("ey-cert").textContent = t(UI.eyebrows.cert);
+  el("t-cert").textContent  = t(UI.titles.cert);
+  el("ey-langs").textContent= t(UI.eyebrows.langs);
+
+  el("eduList").innerHTML = EDUCATION.map(e => `
+    <div class="edu-item">
+      <div class="edu-date">${esc(e.date)}</div>
+      <div class="edu-deg">${esc(t(e.deg))}</div>
+      <div class="edu-school">${esc(t(e.school))}</div>
+    </div>`).join("");
+
+  el("certList").innerHTML = CERTS.map(c => `
+    <div class="cert-item">
+      <span class="cert-date">${esc(c.date)}</span>
+      <span class="cert-name">${esc(c.name)}${c.pending ? `<span class="cert-tag">${esc(t(UI.inProgress))}</span>` : ""}</span>
+    </div>`).join("");
+
+  el("langList").innerHTML = SPOKEN.map(s => `
+    <div class="lang-pill"><b>${esc(t(s.name))}</b><span>${esc(t(s.level))}</span></div>`).join("");
+}
+
+function renderContact(){
+  el("ey-contact").textContent = t(UI.eyebrows.contact);
+  el("contactLede").textContent = t(UI.titles.contactL);
+  el("contactSub").textContent  = t(UI.titles.contactS);
+  el("contactList").innerHTML = CONTACT.map(c => {
+    const inner = `<span class="k">${esc(t(c.k))}</span><span class="v">${esc(t(c.v))}</span>`;
+    return c.href
+      ? `<a class="contact-row" href="${esc(c.href)}"${c.href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}>${inner}</a>`
+      : `<div class="contact-row">${inner}</div>`;
+  }).join("");
+  el("footNote").textContent = t(UI.footNote);
+}
+
+/* rotating role line */
+let typeTimer = null;
+function startTyping(){
+  clearTimeout(typeTimer);
+  const target = el("typedRole");
+  const list = UI.roles[lang] || UI.roles.en;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    target.textContent = list[0];
+    return;
+  }
+  let i = 0, j = 0, deleting = false;
+  const tick = () => {
+    const word = list[i];
+    target.textContent = deleting ? word.slice(0, --j) : word.slice(0, ++j);
+    let wait = deleting ? 32 : 62;
+    if (!deleting && j === word.length){ deleting = true; wait = 1700; }
+    else if (deleting && j === 0){ deleting = false; i = (i + 1) % list.length; wait = 260; }
+    typeTimer = setTimeout(tick, wait);
+  };
+  tick();
+}
+
+function setLang(next){
+  lang = ["en","fr","de"].includes(next) ? next : "en";
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute("data-lang", lang);
+  document.querySelectorAll("[data-set-lang]").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
+  renderNav(); renderHero(); renderAbout(); renderExperience();
+  renderProjects(); renderSkills(); renderEducation(); renderContact();
+  startTyping();
+}
+
+document.getElementById("langSwitch").addEventListener("click", e => {
+  const btn = e.target.closest("[data-set-lang]");
+  if (btn) setLang(btn.dataset.setLang);
+});
+
+el("year").textContent = new Date().getFullYear();
+
+/* language from URL (?lang=de) → browser preference → English */
+const urlLang = new URLSearchParams(location.search).get("lang");
+const navLang = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(urlLang || (["de","fr"].includes(navLang) ? navLang : "en"));
+</script>
 </body>
 </html>
